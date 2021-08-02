@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Lexer } from './models/lex.model';
+import { Lexer } from './models/lexer.model';
 
 @Component({
   selector: 'app-root',
@@ -9,6 +9,8 @@ import { Lexer } from './models/lex.model';
 })
 export class AppComponent implements OnInit{
   form!: FormGroup;
+  displayModal!: boolean;
+  validaciones!: string[];
   codigoFormateado: string[] = [];
   constructor(private fb: FormBuilder){
 
@@ -19,7 +21,11 @@ export class AppComponent implements OnInit{
     })
   }
 
+  showModalDialog() {
+  }
+
   analizadorLexer(){
+    this.displayModal = true;
     let arrayCodigo: string[];
     let {codigo} : {codigo: string} = this.form.value;
     // Aqui quitamos el cierre de la etiqueta parrafo el editor.
@@ -38,6 +44,7 @@ export class AppComponent implements OnInit{
     // console.log(this.codigoFormateado)
     const lexerPropio: Lexer = new Lexer(this.codigoFormateado);
     lexerPropio.recorrer();
+    this.validaciones = lexerPropio._validaciones;
     console.log(lexerPropio._validaciones);
   }
 }
