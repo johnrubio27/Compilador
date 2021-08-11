@@ -6,9 +6,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+import { HttpClientModule } from '@angular/common/http';
+
 import {ButtonModule} from 'primeng/button';
 import {DialogModule} from 'primeng/dialog';
 import {EditorModule} from 'primeng/editor';
+import {InputTextareaModule} from 'primeng/inputtextarea';
 import {TableModule} from 'primeng/table';
 
 
@@ -23,7 +26,9 @@ import {TableModule} from 'primeng/table';
     EditorModule,
     ButtonModule,
     DialogModule,
+    InputTextareaModule,
     TableModule,
+    HttpClientModule,
     ReactiveFormsModule  
   ],
   providers: [],

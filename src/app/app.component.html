@@ -1,11 +1,17 @@
 <form [formGroup]="form" (ngSubmit)="analizadorLexer">
-  <p-editor formControlName="codigo" [style]="{'height':'320px'}" placeholder="Esperando su código">
+  <!-- <p-editor formControlName="codigo" [style]="{'height':'320px'}" placeholder="Esperando su código">
     <ng-template pTemplate="header">
         <span class="ql-formats">
           <h3 class="text-teal-700">Ingrese su código</h3> 
         </span>
     </ng-template>
-  </p-editor>
+  </p-editor> -->
+  
+<div class="card flex justify-content-center flex-wrap">
+  <div class="font-bold text-blue-500 shadow-1 m-2 flex align-items-center justify-content-center" style="min-width: 200px; min-height: 100px">
+    <textarea rows="20" cols="150" pInputTextarea formControlName="codigo"></textarea>
+  </div>
+</div>
   <div class="flex justify-content-center">
     <div class="mt-5 flex align-items-center justify-content-center">
       <button pButton pRipple type="button" label="Analizador Lexer" class="p-button-rounded" (click)="analizadorLexer()"></button>
