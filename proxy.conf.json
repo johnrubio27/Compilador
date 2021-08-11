@@ -1,0 +1,7 @@
+{
+    "/api/*":{
+        "target": "https://compilador-backend-unimagdalen.herokuapp.com/",
+        "secure": false,
+        "loglevel": "debug"
+    }
+}

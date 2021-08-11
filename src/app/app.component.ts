@@ -24,7 +24,7 @@ export class AppComponent implements OnInit{
   }
   ngOnInit(): void {
     this.form = this.fb.group({
-      codigo: ['sisas{3<4}(imprimir{1};;imprimir{1};;)', [Validators.required]]
+      codigo: ['sisas{3<4}(imprimir{1};imprimir{2};)', [Validators.required]]
     })
   }
 
@@ -39,6 +39,5 @@ export class AppComponent implements OnInit{
       this.salida = salida;
       console.log(salida);
     });
-    console.log(this.salida);
   }
 }
