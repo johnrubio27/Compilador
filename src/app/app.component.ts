@@ -24,7 +24,7 @@ export class AppComponent implements OnInit{
   }
   ngOnInit(): void {
     this.form = this.fb.group({
-      codigo: [null, [Validators.required]]
+      codigo: ['sisas{3<4}(imprimir{1};;imprimir{1};;)', [Validators.required]]
     })
   }
 
@@ -37,6 +37,8 @@ export class AppComponent implements OnInit{
     this.code = new Code(codigo.split("\n").join(""));
     this.compiladorService.compile(this.code).subscribe( (salida) =>{
       this.salida = salida;
+      console.log(salida);
     });
+    console.log(this.salida);
   }
 }

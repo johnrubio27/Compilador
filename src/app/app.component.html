@@ -14,25 +14,17 @@
 </div>
   <div class="flex justify-content-center">
     <div class="mt-5 flex align-items-center justify-content-center">
-      <button pButton pRipple type="button" label="Analizador Lexer" class="p-button-rounded" (click)="analizadorLexer()"></button>
+      <button pButton pRipple type="button" label="Compilar" class="p-button-rounded" (click)="analizadorLexer()"></button>
     </div>
   </div>
 </form>
 
-<p-dialog header="Análisis Léxico" [(visible)]="displayModal" [modal]="true" [style]="{width: '50vw'}" [baseZIndex]="10000"
+<p-dialog header="Compilado" [(visible)]="displayModal" [modal]="true" [style]="{width: '50vw'}" [baseZIndex]="10000"
     [draggable]="false" [resizable]="false">
-<p-table [value]="validaciones">
-    <ng-template pTemplate="header">
-        <tr>
-            <th>Linea</th>
-        </tr>
-    </ng-template>
-    <ng-template pTemplate="body" let-linea>
-        <tr>
-            <td>{{linea}}</td>
-        </tr>
-    </ng-template>
-</p-table>
+
+    {{salida != null ? salida.output:''}}
+    
+    
         <ng-template pTemplate="footer">
         <p-button icon="pi pi-check" (click)="displayModal=false" label="Ok" styleClass="p-button-text"></p-button>
         </ng-template>

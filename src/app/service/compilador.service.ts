@@ -9,7 +9,7 @@ import { Code } from '../models/Code.model';
 })
 export class CompiladorService {
 
-  url: string = 'http://localhost:3000';
+  url: string = 'https://compile-backend-unimagdalena.herokuapp.com';
 
   constructor(private http: HttpClient) { }
 
