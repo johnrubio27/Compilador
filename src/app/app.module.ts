@@ -10,7 +10,6 @@ import { HttpClientModule } from '@angular/common/http';
 
 import {ButtonModule} from 'primeng/button';
 import {DialogModule} from 'primeng/dialog';
-import {EditorModule} from 'primeng/editor';
 import {InputTextareaModule} from 'primeng/inputtextarea';
 import {TableModule} from 'primeng/table';
 
@@ -23,7 +22,6 @@ import {TableModule} from 'primeng/table';
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    EditorModule,
     ButtonModule,
     DialogModule,
     InputTextareaModule,

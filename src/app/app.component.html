@@ -1,20 +1,16 @@
 <form [formGroup]="form" (ngSubmit)="analizadorLexer">
-  <!-- <p-editor formControlName="codigo" [style]="{'height':'320px'}" placeholder="Esperando su código">
-    <ng-template pTemplate="header">
-        <span class="ql-formats">
-          <h3 class="text-teal-700">Ingrese su código</h3> 
-        </span>
-    </ng-template>
-  </p-editor> -->
   
 <div class="card flex justify-content-center flex-wrap">
   <div class="font-bold text-blue-500 shadow-1 m-2 flex align-items-center justify-content-center" style="min-width: 200px; min-height: 100px">
-    <textarea rows="20" cols="150" pInputTextarea formControlName="codigo"></textarea>
+    <span class="p-float-label">
+      <textarea rows="20" cols="150" pInputTextarea formControlName="codigo" placeholder="Ingrese su código por favor"></textarea>
+      <label for="float-input">Código</label>
+    </span>
   </div>
 </div>
   <div class="flex justify-content-center">
     <div class="mt-5 flex align-items-center justify-content-center">
-      <button pButton pRipple type="button" label="Compilar" class="p-button-rounded" (click)="analizadorLexer()"></button>
+      <button pButton pRipple type="button" label="Compilar" class="p-button-rounded" (click)="analizadorLexer()" [disabled]="btnCompileDisabled"></button>
     </div>
   </div>
 </form>
@@ -22,7 +18,38 @@
 <p-dialog header="Compilado" [(visible)]="displayModal" [modal]="true" [style]="{width: '50vw'}" [baseZIndex]="10000"
     [draggable]="false" [resizable]="false">
 
-    {{salida != null ? salida.output:''}}
+    <!-- {{salida != null ? salida.output:''}} -->
+    <p-table *ngIf="arrayOutput.length != 0" [value]="arrayOutput">
+      <ng-template pTemplate="header">
+          <tr>
+              <th>Salida</th>
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-output>
+          <tr>
+              <td>{{output}}</td>
+          </tr>
+      </ng-template>
+  </p-table>
+
+    <p-table *ngIf="errors.length != 0" [value]="errors">
+      <ng-template pTemplate="header">
+          <tr>
+              <th>Type</th>
+              <th>Message</th>
+              <th>Row</th>
+              <th>Column</th>
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-error>
+          <tr>
+              <td>{{error.type}}</td>
+              <td>{{error.message}}</td>
+              <td>{{error.row}}</td>
+              <td>{{error.column}}</td>
+          </tr>
+      </ng-template>
+  </p-table>
     
     
         <ng-template pTemplate="footer">
